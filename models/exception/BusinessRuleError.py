@@ -1,4 +1,4 @@
-from exception.GymException import GymException
+from .GymException import GymException
 
 class BusinessRuleError(GymException):
     def __init__(self, message: str, code: int):

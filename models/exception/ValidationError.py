@@ -1,4 +1,4 @@
-from models.exception.GymException import GymException
+from .GymException import GymException
 
 class ValidationError(GymException):
     def __init__(self, message: str, code: int):

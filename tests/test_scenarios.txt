@@ -1,0 +1,61 @@
+========================================================================
+GYM MANAGEMENT SYSTEM — 10 TEST SCENARIOS
+Requirement: OOP Final Project Requirements (Mohamed Abu Obaida) Section 9
+========================================================================
+
+--- SUCCESSFUL SCENARIOS (3) ---
+Scenario 1: Add New Member & Create Active Membership
+- Given: System has no member with ID 'M001'.
+- When: Adding Member('M001', 'Ahmed Hegazy', '01012345678', 'ahmed@example.com') and creating a MONTHLY membership.
+- Expected: Member is stored successfully, has an active membership, and status reflects Active.
+
+Scenario 2: Record Valid Attendance for Active Member
+- Given: Member 'M001' has an active membership.
+- When: Calling record_attendance('M001', trainer_id='T001').
+- Expected: Attendance record created with current check_in timestamp and added to member history.
+
+Scenario 3: Record Payment and Calculate Remaining Balance
+- Given: Membership has a price of $50.0.
+- When: Recording a Payment of $30.0 with CASH.
+- Expected: Total paid updates to $30.0, and remaining balance returns $20.0.
+
+
+--- INVALID INPUT SCENARIOS (3) ---
+Scenario 4: Payment with Zero or Negative Amount
+- Given: An existing membership.
+- When: Calling record_payment(membership_id, amount=0) or amount=-10.
+- Expected: Raises ValidationError with code 4002 ("Payment amount must be greater than zero.").
+
+Scenario 5: Creating Member with Empty Name or Empty ID
+- Given: An empty string for ID or Name.
+- When: Calling add_member(Member('', '', '0101', 'email@test.com')).
+- Expected: Raises ValidationError with code 400 ("Member ID and Name cannot be empty.").
+
+Scenario 6: Attendance for Non-Existent Member
+- Given: Member ID 'NON_EXISTENT_999' is not registered.
+- When: Calling record_attendance('NON_EXISTENT_999').
+- Expected: Raises ValidationError with code 4004 ("A member must exist before attendance can be recorded.").
+
+
+--- BUSINESS-RULE VIOLATIONS (2) ---
+Scenario 7: Attendance with Expired / Inactive Membership
+- Given: Member 'M002' has no active membership (or membership end date has passed).
+- When: Calling record_attendance('M002').
+- Expected: Raises BusinessRuleError with code 4003 ("A member cannot attend if their membership is expired or inactive.").
+
+Scenario 8: Concurrent Active Memberships for Same Member
+- Given: Member 'M001' already has an active monthly membership.
+- When: Calling create_membership('M001', MembershipType.YEARLY).
+- Expected: Raises BusinessRuleError with code 4001 ("A member cannot have two active memberships simultaneously.").
+
+
+--- EDGE CASES (2) ---
+Scenario 9: Renewal of an Already Expired Membership
+- Given: A membership whose end date was 10 days in the past.
+- When: Calling renew(months=1).
+- Expected: Base renewal date resets relative to today, status becomes ACTIVE, and new end_date is ~30 days from today.
+
+Scenario 10: Attendance Duration Calculation Without Check-Out
+- Given: An attendance session that has checked in but has not yet checked out (check_out is None).
+- When: Calling duration_minutes().
+- Expected: Returns 0 instead of crashing or throwing a TypeError.
