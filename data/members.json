@@ -1,0 +1,211 @@
+[
+    {
+        "id": "M101",
+        "name": "Ahmed Hegazy",
+        "phone": "01012345678",
+        "email": "ahmed@example.com",
+        "join_date": "2026-09-15",
+        "memberships": [
+            {
+                "id": "MS-101",
+                "member_id": "M101",
+                "type": "Monthly",
+                "start_date": "2026-10-01",
+                "end_date": "2026-10-31",
+                "price": 50.0,
+                "status": "Active",
+                "payments": [
+                    {
+                        "id": "PAY-101",
+                        "membership_id": "MS-101",
+                        "amount": 50.0,
+                        "payment_date": "2026-10-01",
+                        "method": "Cash"
+                    }
+                ]
+            }
+        ],
+        "attendances": [
+            {
+                "id": "ATT-101",
+                "member_id": "M101",
+                "trainer_id": "T101",
+                "check_in": "2026-10-11T10:15:00",
+                "check_out": "2026-10-11T11:30:00"
+            },
+            {
+                "id": "ATT-5F7F5D",
+                "member_id": "M101",
+                "trainer_id": null,
+                "check_in": "2026-10-11T15:18:16.299035",
+                "check_out": null
+            },
+            {
+                "id": "ATT-D1F3E3",
+                "member_id": "M101",
+                "trainer_id": "T101",
+                "check_in": "2026-10-11T15:18:25.327210",
+                "check_out": null
+            },
+            {
+                "id": "ATT-6F9849",
+                "member_id": "M101",
+                "trainer_id": null,
+                "check_in": "2026-10-11T15:18:48.463050",
+                "check_out": null
+            },
+            {
+                "id": "ATT-90DC25",
+                "member_id": "M101",
+                "trainer_id": "T102",
+                "check_in": "2026-10-11T15:18:55.073812",
+                "check_out": null
+            }
+        ]
+    },
+    {
+        "id": "M102",
+        "name": "Omar Khaled",
+        "phone": "01122334455",
+        "email": "omar@example.com",
+        "join_date": "2026-08-01",
+        "memberships": [
+            {
+                "id": "MS-102",
+                "member_id": "M102",
+                "type": "Quarterly",
+                "start_date": "2026-09-01",
+                "end_date": "2026-11-30",
+                "price": 130.0,
+                "status": "Active",
+                "payments": [
+                    {
+                        "id": "PAY-102",
+                        "membership_id": "MS-102",
+                        "amount": 130.0,
+                        "payment_date": "2026-09-01",
+                        "method": "Card"
+                    }
+                ]
+            }
+        ],
+        "attendances": [
+            {
+                "id": "ATT-102",
+                "member_id": "M102",
+                "trainer_id": "T102",
+                "check_in": "2026-10-10T17:00:00",
+                "check_out": "2026-10-10T18:15:00"
+            }
+        ]
+    },
+    {
+        "id": "M103",
+        "name": "Kareem Tarek",
+        "phone": "01233445566",
+        "email": "kareem@example.com",
+        "join_date": "2026-07-10",
+        "memberships": [
+            {
+                "id": "MS-103",
+                "member_id": "M103",
+                "type": "Monthly",
+                "start_date": "2026-08-01",
+                "end_date": "2026-08-31",
+                "price": 50.0,
+                "status": "Expired",
+                "payments": [
+                    {
+                        "id": "PAY-103",
+                        "membership_id": "MS-103",
+                        "amount": 50.0,
+                        "payment_date": "2026-08-01",
+                        "method": "Online"
+                    }
+                ]
+            }
+        ],
+        "attendances": [
+            {
+                "id": "ATT-103",
+                "member_id": "M103",
+                "trainer_id": null,
+                "check_in": "2026-08-20T14:00:00",
+                "check_out": "2026-08-20T15:00:00"
+            }
+        ]
+    },
+    {
+        "id": "M104",
+        "name": "Mona Adel",
+        "phone": "01555667788",
+        "email": "mona@example.com",
+        "join_date": "2026-09-20",
+        "memberships": [
+            {
+                "id": "MS-104",
+                "member_id": "M104",
+                "type": "Yearly",
+                "start_date": "2026-10-05",
+                "end_date": "2027-10-05",
+                "price": 450.0,
+                "status": "Active",
+                "payments": [
+                    {
+                        "id": "PAY-104",
+                        "membership_id": "MS-104",
+                        "amount": 250.0,
+                        "payment_date": "2026-10-05",
+                        "method": "Card"
+                    }
+                ]
+            }
+        ],
+        "attendances": [
+            {
+                "id": "ATT-104",
+                "member_id": "M104",
+                "trainer_id": "T102",
+                "check_in": "2026-10-11T09:00:00",
+                "check_out": "2026-10-11T10:10:00"
+            }
+        ]
+    },
+    {
+        "id": "M105",
+        "name": "Hassan Mahmoud",
+        "phone": "01099881122",
+        "email": "hassan@example.com",
+        "join_date": "2026-10-08",
+        "memberships": [],
+        "attendances": []
+    },
+    {
+        "id": "M106",
+        "name": "ytuj",
+        "phone": "65675",
+        "email": "uyoui",
+        "join_date": "2026-10-11",
+        "memberships": [
+            {
+                "id": "MS-A67631",
+                "member_id": "M106",
+                "type": "Monthly",
+                "start_date": "2026-10-11",
+                "end_date": "2026-11-10",
+                "price": 50.0,
+                "status": "Active",
+                "payments": [
+                    {
+                        "id": "PAY-731739",
+                        "membership_id": "MS-A67631",
+                        "amount": 20.0,
+                        "payment_date": "2026-10-11",
+                        "method": "Online"
+                    }
+                ]
+            }
+        ],
+        "attendances": []
+    }
+]

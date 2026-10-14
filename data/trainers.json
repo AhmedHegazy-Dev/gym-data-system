@@ -1,0 +1,37 @@
+[
+    {
+        "id": "T101",
+        "name": "Captain Mohamed",
+        "phone": "01011112233",
+        "email": "mohamed@fitness.com",
+        "specialty": "CrossFit & Strength",
+        "salary": 2500.0,
+        "is_available": true,
+        "assigned_members": [
+            "M101"
+        ]
+    },
+    {
+        "id": "T102",
+        "name": "Coach Sarah",
+        "phone": "01099887766",
+        "email": "sarah@fitness.com",
+        "specialty": "Cardio & Nutrition",
+        "salary": 2200.0,
+        "is_available": true,
+        "assigned_members": [
+            "M102",
+            "M104"
+        ]
+    },
+    {
+        "id": "T103",
+        "name": "Coach Youssef",
+        "phone": "01288776655",
+        "email": "youssef@fitness.com",
+        "specialty": "Boxing & Conditioning",
+        "salary": 2400.0,
+        "is_available": false,
+        "assigned_members": []
+    }
+]

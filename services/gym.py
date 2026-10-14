@@ -25,6 +25,8 @@ class Gym:
         self.__attendances: List[Attendance] = []
 
         self.load_data()
+        if len(self.__members) == 0:
+            self.seed_sample_data()
 
     @property
     def name(self) -> str:
@@ -287,6 +289,43 @@ class Gym:
                     self.__payments.append(p)
             for att in m.attendances:
                 self.__attendances.append(att)
+
+    def seed_sample_data(self) -> None:
+        if self.__file_manager.file_exists("members") or self.__file_manager.file_exists("trainers"):
+            return
+
+        t1 = Trainer("T101", "Captain Mohamed", "01011112233", "mohamed@gym.com", "CrossFit & Strength", 2500.0, True)
+        t2 = Trainer("T102", "Coach Sarah", "01099887766", "sarah@gym.com", "Cardio & Fitness", 2200.0, True)
+        self.__trainers = [t1, t2]
+
+        today = date.today()
+        m1 = Member("M101", "Ahmed Hegazy", "01012345678", "ahmed@example.com", join_date=today - timedelta(days=20))
+        ms1 = Membership("MS-101", "M101", MembershipType.MONTHLY, start_date=today - timedelta(days=10), end_date=today + timedelta(days=20), price=50.0, status=MembershipStatus.ACTIVE)
+        p1 = Payment("PAY-101", ms1.id, 50.0, today - timedelta(days=10), PaymentMethod.CASH)
+        ms1.add_payment(p1)
+        m1.add_membership(ms1)
+
+        m2 = Member("M102", "Omar Khaled", "01122334455", "omar@example.com", join_date=today - timedelta(days=45))
+        ms2 = Membership("MS-102", "M102", MembershipType.QUARTERLY, start_date=today - timedelta(days=30), end_date=today + timedelta(days=60), price=130.0, status=MembershipStatus.ACTIVE)
+        p2 = Payment("PAY-102", ms2.id, 130.0, today - timedelta(days=30), PaymentMethod.CARD)
+        ms2.add_payment(p2)
+        m2.add_membership(ms2)
+
+        m3 = Member("M103", "Kareem Tarek", "01233445566", "kareem@example.com", join_date=today - timedelta(days=70))
+        ms3 = Membership("MS-103", "M103", MembershipType.MONTHLY, start_date=today - timedelta(days=60), end_date=today - timedelta(days=30), price=50.0, status=MembershipStatus.EXPIRED)
+        p3 = Payment("PAY-103", ms3.id, 50.0, today - timedelta(days=60), PaymentMethod.ONLINE)
+        ms3.add_payment(p3)
+        m3.add_membership(ms3)
+
+        self.__members = [m1, m2, m3]
+        t1.assign_member("M101")
+        t2.assign_member("M102")
+
+        att1 = Attendance("ATT-001", "M101", trainer_id="T101", check_in=datetime.now() - timedelta(minutes=45), check_out=datetime.now())
+        m1.record_attendance(att1)
+
+        self.save_data()
+        self.load_data()
 
     def save_data(self) -> None:
         self.__file_manager.save("members", [m.to_dict() for m in self.__members])
